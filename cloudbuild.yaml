@@ -3,6 +3,8 @@ steps:
 # step 0
 - name: 'gcr.io/cloud-builders/git'
   entrypoint: 'bash'
+  env:
+  - 'TAG_NAME=$TAG_NAME' 
   args: 
   - '-c'
   - |
