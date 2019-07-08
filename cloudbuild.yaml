@@ -9,6 +9,7 @@ steps:
   - '-c'
   - |
     echo $TAG_NAME
+    echo version-{sourceref}
 
 # step 1
 - name: 'gcr.io/cloud-builders/git'
