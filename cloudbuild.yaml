@@ -1,45 +1,11 @@
-steps:
-
-# step 0
-- name: 'gcr.io/cloud-builders/git'
-  entrypoint: 'bash'
-#  env:
-#  - 'TAG_NAME=$TAG_NAME' 
-  args: 
-  - '-c'
-  - |
-    echo $TAG_NAME
-    echo version-{sourceref}
-
-# step 1
-- name: 'gcr.io/cloud-builders/git'
-  entrypoint: 'bash'
-  args: 
-  - '-c'
-  - |
-    echo $SHORT_SHA
-
-# step 2
-- name: 'gcr.io/cloud-builders/git'
-  entrypoint: 'bash'
-  args: 
-  - '-c'
-  - |
-    echo $(git tag -l --points-at HEAD)
-
-# step 3
-- name: 'gcr.io/cloud-builders/git'
-  entrypoint: 'bash'
-  args: 
-  - '-c'
-  - |
-    echo $(git tag -l --points-at $SHORT_SHA)
-
-# step 4
-- name: 'gcr.io/cloud-builders/git'
-  entrypoint: 'bash'
-  args: 
-  - '-c'
-  - |
-    echo $(git show -s --format='%ae' $SHORT_SHA | sed 's/@.*//')
-    
+{
+ "steps": [
+  { 
+   "name": "gcr.io/cloud-builders/gcloud",
+   "args": [
+    "functions", "deploy", "function-1emtm-events-gcf-dev",
+    "--source", "https://source.developers.google.com/projects/singja-lab-01/repos/github_singja_singja", "--region=us-central1", "--runtime=python3", "--trigger-http", "--memory=256M", "--timeout=60", "--entry-point=hello_World", "--region=us-central1", "--project=singja-lab-01",
+    ]
+   },
+ ],
+}
