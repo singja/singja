@@ -4,7 +4,7 @@
    "name": "gcr.io/cloud-builders/gcloud",
    "args": [
     "functions", "deploy", "singja-lab-cloudbuild-01",
-    "--source", "https://source.developers.google.com/projects/singja-lab-01/repos/github_singja_singja", "--region=us-central1", "--runtime=python3", "--trigger-http", "--memory=256M", "--timeout=60", "--entry-point=hello_World", "--region=us-central1", "--project=singja-lab-01",
+    "--source", "https://source.developers.google.com/projects/singja-lab-01/repos/github_singja_singja", "--region=us-central1", "--runtime=python", "--trigger-http", "--memory=256M", "--timeout=60", "--entry-point=hello_World", "--region=us-central1", "--project=singja-lab-01",
     ]
    },
  ],
